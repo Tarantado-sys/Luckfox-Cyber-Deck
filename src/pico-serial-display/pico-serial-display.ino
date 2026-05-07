@@ -120,6 +120,60 @@ void readPort(Stream &port) {
   }
 }
 
+void startup() {
+
+  tft.setTextColor(ST77XX_GREEN);
+  tft.setTextSize(1);
+
+  String mocklinuxlogs = "[    0.000000] Booting Linux kernel...\n"
+"[    0.000000] Linux version 6.x.x\n"
+"[    0.000000] CPU: Processor detected\n"
+"[    0.000000] Memory: initializing system memory\n"
+"[    0.003882] clocksource: timer initialized\n"
+"[    0.007114] random: entropy pool initialized\n"
+"[    0.012771] NET: Registered protocol family 16\n"
+"[    0.019222] GPIO subsystem initialized\n"
+"[    0.025117] SPI subsystem initialized\n"
+"[    0.030994] I2C subsystem initialized\n"
+"[    0.036183] UART subsystem initialized\n"
+"[    0.041991] USB core initialized\n"
+"[    0.048772] Storage device detected\n"
+"[    0.056101] Mounting root filesystem...\n"
+"[    0.064882] VFS: Mounted root filesystem";
+
+  String tux = "            a8888b.\n"
+"           d888888b.\n"
+"           8P\"YP\"Y88\n"
+"           8|o||o|88\n"
+"           8'    .88\n"
+"           8`._.' Y8.\n"
+"          d/      `8b.\n"
+"         dP   .    Y8b.\n"
+"        d8:'  \"  `::88b\n"
+"       d8\"         'Y88b\n"
+"      :8P    '      :888\n"
+"       8a.   :     _a88P\n"
+"     ._\/\"Yaa_:   .| 88P|\n"
+"jgs  \\    YP\"    `| 8P  `.\n"
+"a:f  /     \\.___.d|    .'\n"
+"     `--..__)8888P`._.' ";
+
+  tft.println(mocklinuxlogs);
+
+  delay(3000);
+
+  tft.fillScreen(ST77XX_BLACK);
+
+  cursorY = 0;
+
+  tft.println(tux);
+
+  delay(3000);
+
+  tft.fillScreen(ST77XX_BLACK);
+
+  cursorY = 0;
+} 
 
 void setup() {
 
@@ -130,11 +184,12 @@ void setup() {
   tft.setRotation(1);
 
   tft.fillScreen(ST77XX_BLACK);
+
+  startup();
 }
 
 
 void loop() {
-
   readPort(Serial1);
   readPort(Serial);
 }

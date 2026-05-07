@@ -180,12 +180,21 @@ After activating **UART3_M1**, you will see **/dev/ttyS3**
 
 ### Usage B
 
-1. After configuring the **UART Interface** run the command:
+After configuring the **UART Interface** you can run the 'autoconfig.sh' shell script to automatically configure the baudrate for UART3_M1 (and it does this every startup):
+
+1. Download the Github repo:
 
 ```bash
-stty -F /dev/ttyS3 921600
+git clone https://github.com/Tarantado-sys/Luckfox-Cyber-Deck.git
 ```
-2. Then after that run:
+
+2. Copy the shell script to the Luckfox via 'scp' run the command: (make sure that your luckfox is connected.)
+
+```bash
+scp /Luckfox-Cyber-Deck/src/autoconfig root@172.32.0.93:/path/to/destination/
+```
+
+3. Then after that run:
 
 ```bash
 (echo TEXT_BEGIN; echo "Hello World!"; echo TEXT_END) > /dev/ttyS3           
