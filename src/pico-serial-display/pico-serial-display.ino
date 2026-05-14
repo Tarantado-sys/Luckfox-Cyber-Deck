@@ -1,6 +1,7 @@
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
+#include "includes/crc.h"
 
 #define TFT_CS   17
 #define TFT_DC   21
