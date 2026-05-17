@@ -1,20 +1,3 @@
-# simple crc algo
-def crc16_ccitt(data: bytes, poly=0x1021, init_crc=0xFFFF):
-    crc = init_crc
-
-    for byte in data:
-        crc ^= (byte << 8)  #bring byte into upper 8 bits
-
-        for _ in range(8):  # process 8 bits
-            if crc & 0x8000:  # if MSB is 1
-                crc = (crc << 1) ^ poly
-            else:
-                crc = crc << 1
-
-            crc &= 0xFFFF  # keep 16bit
-
-    return crc
-
 # add packets to list
 def packetadder(cmd, seq, length, params):
     return [cmd, seq, length] + params

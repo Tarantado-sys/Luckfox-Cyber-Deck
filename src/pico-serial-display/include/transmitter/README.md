@@ -105,3 +105,6 @@ Uses CRC16-CCITT polynomial (0x1021) with initial value 0xFFFF:
 
 > [!NOTE]
 > I haven`t implemented the full packet queue system.
+
+## Changelog
+- Changed the `CRC algorithm` to better fit the `CRC algorithm` for the reciever written in C++.
