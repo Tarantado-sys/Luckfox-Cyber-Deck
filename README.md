@@ -1,4 +1,4 @@
-# Luckfox Pico Plus Cyberdeck Ver. 0.0.1 (LP+ Cyberdeck)
+# Luckfox Pico Plus Cyberdeck (LP+ Cyberdeck)
 
 ## About
 
