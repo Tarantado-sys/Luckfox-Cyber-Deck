@@ -54,7 +54,7 @@ packet = packetadder(seq, length, cmd, params)
 data = bytes(packet)
 crc = CRC16()
 crc.update(data)
-value = crc.digest()  # 👈 get integer CRC result
+value = crc.digest()
 
 print(hex(value))
 print(f"{value:04X}")

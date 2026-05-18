@@ -20,7 +20,7 @@ def await_response():
     else:
         return
 
-
+#packet sender
 def send_packet(packet_hex_list):
 
     # hex string -> int
@@ -35,11 +35,13 @@ def send_packet(packet_hex_list):
     ser.write(packet)
     ser.flush()
 
+#reads data.bin
 def readbin(filename):
     with open(filename, "rb") as file:
         line = file.readline()  
     return line
 
+#deletes content from data.bin and moves all content up a line
 def delmove(filename):
     with open(filename, "rb") as file:
         lines = file.readlines()
